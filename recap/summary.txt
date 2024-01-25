@@ -1,4 +1,4 @@
-total_deaths: 45
-total_births: 43
-total_carrots: [200, 552, 818, 737, 552, 400, 800]
-fox_meals: 35
+total_deaths: 48
+total_births: 46
+total_carrots: [200, 552, 838, 788, 548, 400, 400]
+fox_meals: 34

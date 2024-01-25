@@ -143,7 +143,7 @@ class Garden:
         plt.figure(figsize=(10, 6)) # Set the figure size
         plt.plot(range(len(self.population_history['rabbits'])), self.population_history['rabbits'], color='blue', label='Population de lapins') # Plot the rabbit population
         plt.plot(range(len(self.population_history['carrots'])), self.population_history['carrots'], color='green', label='Quantité de carottes') # Plot the carrot quantity
-        plt.plot(range(len(self.population_history['fox_eaten'])), self.population_history['fox_eaten'], color='red', label='Lapins mangés par le renard') # Plot the number of rabbits eaten by the fox
+        plt.plot(range(len(self.population_history['fox_eaten'])), self.population_history['fox_eaten'], color='red', label='Lapins mangés par le renard', linestyle='dotted') # Plot the number of rabbits eaten by the fox
         plt.xlabel('Semaines') # Set the x-axis label
         plt.ylabel('Population / Quantité') # Set the y-axis label
         plt.title('Évolution de la population et de la quantité de carottes au fil du temps') # Set the title
