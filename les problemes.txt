@@ -1,0 +1,20 @@
+les differents problemes rencontrés:
+
+La répartition du travail. En effet nous ne savons pas forcément comment répartir 
+les différentes tâches que nous avons à faire car nous ne connaissons pas les différents niveaux de chacun.
+
+La deuxième difficulté que nous avons rencontrée est la mort rapide des lapins. Effectivement, tous les lapins mouraient 
+au bout de 4 ans même en ayant mangé. ce qui engendrait la fin de la simulation au bout de 4 ans.
+
+un autre difficulté est aussi le nombre très limité de lapin que nous avons.Comme la naissance des lapins est aléatoire, nous ne sommes
+pas sures du nombre de lapins qui va naitre c'est pour cela que pour de nombreuses simulations le nombre de lapins ne monte pas
+au-dessus  de 20. 
+
+La distance et la disponibilité de chacun sont aussi difficiles car comme nous sommes en distanciel la plupart du temps c'est assez
+difficile de se mettre d'accord et de faire des points ensemble. 
+
+ChatGPT aussi était une épreuve. Nous faisions trop confiance en ChatGPT alors qu'à des moments il nous racontait des betises et parfois
+même nous désorienté. Nous devions refaire le programme d'A à Z à la main pour être sûr que tout fonctionne correctement.
+
+Une difficulté était aussi de trouver un moyen de faire fonctionner le programme sur tous les ordinateurs. En effet, nous avons eu des 
+problèmes de compatibilité avec les ordinateurs de certains membres du groupe.

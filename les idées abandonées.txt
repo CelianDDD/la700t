@@ -1,0 +1,14 @@
+Les diférentes idées qu'on a eu :
+
+la maladie les lapins: la lapins sont touchées aléatoirement par un virus ils ne meurent pas forcément, la maladie et pas forcement 
+contagieuse. Trop complexe en effet il etait trop compliqué de faire en sorte sorte que les lapins soient touchés aléatoirement par la 
+maladie. et la maladie touchés trop de lapins pour qu'on garde le projet. 
+
+
+Le chasseur: il permettait de reguler les renards de facon a garder les la population de lapin en vie.Ils pouvaient aussi de maniere
+aléatoire tuer un ou deu lapin si le nombre de lapins été trop élevé. Nous avons décider de ne pas mettre en place cette fonction car
+les renards mourraient tout le temps. il arrivé aussi que le chasseur tue un lapin quand il en restaient que 2. nous avons donc stopper
+l'idee.
+
+carrotte empoisonnée : comme la maladie les lapins mangent aléatoirement une carotte empoissonée et meurt. le probleme est que si on a
+un renard plus les carotte la population de lapin allés mourir trop rapidement. 

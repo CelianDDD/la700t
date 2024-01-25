@@ -1,0 +1,42 @@
+Etape 1 : réunion de groupe pour la compréhension de l'énoncé et se mettre d'accord sur les charges de travail.
+
+Célian : class Garden - Class Fox
+Paul: class rabbits 
+Lucien: class carrots 
+
+Etape 2 : developpement des chaques parties afin de pouvoir se réunirent à la prochaine séance. 
+
+Etape 3 : Mise en commun de tout ce qu'on fait afin de pouvoir voir les différentes parties et les assembler
+
+Etape 4 : fixer les bugs du programme et fusionner toutes les parties en un seule programme.
+
+Etape 5 : Ajout de la class Fox dans le programme.
+
+Etape 6 : finalisation du projet 
+
+
+Methodes du projet :
+
+Rabbit.init : Cette méthode est le constructeur de la classe Rabbit. Elle initialise un objet Rabbit avec un âge, un sexe, et d'autres attributs tels que le nombre de semaines depuis le dernier repas, si l'animal est enceinte, le nombre de semaines enceinte, et si l'animal a été mangée par un renard.
+
+Rabbit.eat : Cette méthode simule le fait qu'un lapin mange des carottes. Si il reste des carottes, le lapin mange une et réinitialise le compteur des semaines sans manger. Sinon, il incrémente le compteur des semaines sans manger.
+
+Rabbit.can_reproduce : Cette méthode vérifie si un lapin peut se reproduire en fonction de son âge, de son sexe et de son statut de grossesse. Un lapin peut se reproduire s'il a entre 1 et 6 ans, s'il est femelle et s'il n'est pas enceinte.
+
+Rabbit.age_one_week : Cette méthode simule l'âge d'un lapin en augmentant son âge de 1 semaine. Si le lapin est enceinte, elle incrémente également le nombre de semaines enceinte. Si le lapin a été enceinte pendant 4 semaines, elle réinitialise le statut de grossesse et le compteur des semaines enceinte.
+
+Fox.init : Ce constructeur initialise un objet Fox avec un compteur de lapins mangés.
+
+Fox.eat_rabbit : Cette méthode simule le fait qu'un renard mange un lapin. Le lapin est marqué comme mangé par le renard et le compteur des lapins mangés est incrémenté.
+
+Garden.init : Ce constructeur initialise un objet Garden avec une liste de lapins, une quantité de carottes, un renard et un historique de population.
+
+Garden.add_rabbit : Cette méthode ajoute un objet Rabbit à la liste des lapins dans le jardin.
+
+Garden.reproduce : Cette méthode génère de nouveaux lapins basés sur un lapin femelle et un lapin mâle donnés. Elle retourne une liste de ces nouveaux lapins.
+
+Garden.rabbit_has_died : Cette méthode vérifie si un lapin donné est mort en fonction de certaines conditions.
+
+Garden.simulate : Cette méthode simule l'évolution du jardin sur un certain nombre d'années. Elle gère la croissance des carottes, le comportement des lapins et du renard, et la reproduction.
+
+Garden.plot_population_history : Cette méthode trace l'évolution de la population de lapins et de la quantité de carottes au fil du temps.
