@@ -3,6 +3,7 @@ from fox import Fox
 from carrot import Carrot
 import matplotlib.pyplot as plt
 import random
+import os
 
 class Garden:
     def __init__(self):
@@ -20,6 +21,8 @@ class Garden:
         self.carrots = Carrot(200) # Carrot object representing the quantity of carrots in the garden
         self.fox = Fox() # Fox object representing the presence of a fox in the garden
         self.population_history = {'rabbits': [], 'carrots': [], 'fox_eaten': []} # Dictionary to store the population and carrot quantity history
+        self.total_births = 0
+        self.total_deaths = 0
 
     def add_rabbit(self, rabbit):
         """
@@ -44,13 +47,15 @@ class Garden:
 
         """
         new_rabbits = []
+        female_rabbit.is_pregnant = True 
         for _ in range(random.randint(0, 6)): # 0 to 6 babies
             gender = 'female' if random.random() < 0.5 else 'male' # random gender
             new_rabbit = Rabbit(0, gender) # new rabbit
+            new_rabbit.has_born = True
             new_rabbits.append(new_rabbit) # add new rabbit to list of new rabbits
-            female_rabbit.is_pregnant = True 
-            # print("Rabbit successfully reproduced!")
+            self.total_births += 1 # increment total births
         return new_rabbits
+
 
     def rabbit_has_died(self, rabbit):
         """
@@ -64,19 +69,20 @@ class Garden:
 
         """
         if rabbit.weeks_since_last_meal > 2:
-            # print("Rabbit died due to starvation.")
+            self.total_deaths += 1 # increment total deaths
             return True # Rabbit has died
-        elif rabbit.age >= 312:  # 6 years
-            # print("Rabbit died of old age.")
+        elif rabbit.age >= 312: # 6 years
+            self.total_deaths += 1 # increment total deaths
             return True # Rabbit has died
-        elif rabbit.age >= 208 and random.random() < 0.5:  # 4 years
-            # print("Rabbit died due to other causes.")
+        elif rabbit.age >= 208 and random.random() < 0.5: # 4 years
+            self.total_deaths += 1 # increment total deaths
             return True # Rabbit has died
         elif rabbit.eaten_by_fox:
-            # print("Rabbit was eaten by a fox.")
+            self.total_deaths += 1 # increment total deaths
             return True # Rabbit has died
         else:
             return False # Rabbit has not died
+
 
     def simulate(self, years):
         """
@@ -95,6 +101,7 @@ class Garden:
                 # Carrots replenished every June
                 if week == 24:
                     self.carrots.quantity += 400 # 400 carrots added in June
+                    self.carrots.update_history() # Update the carrot quantity history
 
                 # Feed and age the rabbits
                 for rabbit in self.rabbits:
@@ -134,9 +141,31 @@ class Garden:
 
         """
         plt.figure(figsize=(10, 6)) # Set the figure size
-        plt.plot(range(len(self.population_history['rabbits'])), self.population_history['rabbits'], label='Population de lapins') # Plot the rabbit population
-        plt.plot(range(len(self.population_history['carrots'])), self.population_history['carrots'], label='Quantité de carottes') # Plot the carrot quantity
+        plt.plot(range(len(self.population_history['rabbits'])), self.population_history['rabbits'], color='blue', label='Population de lapins') # Plot the rabbit population
+        plt.plot(range(len(self.population_history['carrots'])), self.population_history['carrots'], color='green', label='Quantité de carottes') # Plot the carrot quantity
+        plt.plot(range(len(self.population_history['fox_eaten'])), self.population_history['fox_eaten'], color='red', label='Lapins mangés par le renard') # Plot the number of rabbits eaten by the fox
         plt.xlabel('Semaines') # Set the x-axis label
         plt.ylabel('Population / Quantité') # Set the y-axis label
+        plt.title('Évolution de la population et de la quantité de carottes au fil du temps') # Set the title
         plt.legend() # Show the legend
         plt.show() # Show the plot
+
+
+    def generate_summary(self):
+        summary = {
+            'total_deaths': self.total_deaths,
+            'total_births': self.total_births,
+            'total_carrots': self.carrots.quantity_history,
+            'fox_meals': self.fox.rabbits_eaten
+        }
+        
+        # Convertir le dictionnaire en chaîne de caractères pour l'écrire dans le fichier
+        summary_str = '\n'.join([f'{key}: {value}' for key, value in summary.items()])
+
+        # Créer le dossier 'recap' s'il n'existe pas déjà
+        if not os.path.exists('recap'):
+            os.mkdir('recap')
+
+        # Écrire le récapitulatif dans un fichier texte
+        with open('recap/summary.txt', 'w') as file:
+            file.write(summary_str)

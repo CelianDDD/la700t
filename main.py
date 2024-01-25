@@ -16,5 +16,8 @@ if __name__ == '__main__':
     # Simulate for 6 years
     garden.simulate(6) 
 
+    # Générer le récapitulatif
+    garden.generate_summary()
+
     # Plot the population evolution
     garden.plot_population_history() 

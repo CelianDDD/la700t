@@ -10,3 +10,8 @@ class Carrot:
         - quantity: Integer representing the quantity of carrots.
         """
         self.quantity: int = quantity # quantity of carrots
+        self.quantity_history: list = [quantity]
+
+
+    def update_history(self):
+        self.quantity_history.append(self.quantity)
