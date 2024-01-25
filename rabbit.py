@@ -32,7 +32,7 @@ class Rabbit:
         Returns:
         - None
         """
-        if carrots.quantity > 0:
+        if carrots.quantity > 0: # if there are carrots available
             carrots.quantity -= 1 # decrement the quantity of carrots
             self.weeks_since_last_meal = 0 # reset the number of weeks since the rabbit's last meal
             #print("Rabbit ate a carrot!")

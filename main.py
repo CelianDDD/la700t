@@ -1,5 +1,5 @@
-from rabbit import Rabbit
-from garden import Garden
+from rabbit import Rabbit # import Rabbit class from rabbit.py
+from garden import Garden # import Garden class from garden.py
 
 if __name__ == '__main__':
     # Initialize Garden 

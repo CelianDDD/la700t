@@ -1,9 +1,9 @@
-from rabbit import Rabbit
-from fox import Fox
-from carrot import Carrot
-import matplotlib.pyplot as plt
-import random
-import os
+from rabbit import Rabbit # Import the Rabbit class from the rabbit.py file
+from fox import Fox # Import the Fox class from the fox.py file
+from carrot import Carrot # Import the Carrot class from the carrot.py file
+import matplotlib.pyplot as plt # Import the matplotlib.pyplot module to plot the population and carrot quantity evolution over time
+import random # Import the random module to generate random numbers
+import os # Import the os module to create the 'recap' folder if it doesn't already exist
 
 class Garden:
     def __init__(self):
@@ -21,8 +21,8 @@ class Garden:
         self.carrots = Carrot(200) # Carrot object representing the quantity of carrots in the garden
         self.fox = Fox() # Fox object representing the presence of a fox in the garden
         self.population_history = {'rabbits': [], 'carrots': [], 'fox_eaten': []} # Dictionary to store the population and carrot quantity history
-        self.total_births = 0
-        self.total_deaths = 0
+        self.total_births = 0 # Total number of rabbit births
+        self.total_deaths = 0 # Total number of rabbit deaths
 
     def add_rabbit(self, rabbit):
         """
@@ -54,7 +54,7 @@ class Garden:
             new_rabbit.has_born = True
             new_rabbits.append(new_rabbit) # add new rabbit to list of new rabbits
             self.total_births += 1 # increment total births
-        return new_rabbits
+        return new_rabbits # return list of new rabbits
 
 
     def rabbit_has_died(self, rabbit):
@@ -94,8 +94,8 @@ class Garden:
         """
         print("------------------")
         for year in range(years):
-            print("Year {}".format(year + 1))
-            print("Carrots: {}".format(self.carrots.quantity))
+            print("Year {}".format(year + 1)) # Print the current year
+            print("Carrots: {}".format(self.carrots.quantity)) # Print the current carrot quantity
 
             for week in range(52):
                 # Carrots replenished every June
@@ -131,8 +131,8 @@ class Garden:
                 self.population_history['carrots'].append(self.carrots.quantity) # Add the current carrot quantity to the population history
                 self.population_history['fox_eaten'].append(self.fox.rabbits_eaten) # Add the current number of rabbits eaten by the fox to the population history
 
-            print("Rabbits: {}".format(len(self.rabbits)))
-            print("Eaten by fox: {}".format(self.fox.rabbits_eaten))
+            print("Rabbits: {}".format(len(self.rabbits))) # Print the current rabbit population
+            print("Eaten by fox: {}".format(self.fox.rabbits_eaten)) # Print the number of rabbits eaten by the fox
             print("------------------")
 
     def plot_population_history(self):
@@ -152,20 +152,32 @@ class Garden:
 
 
     def generate_summary(self):
+        """
+        Generate a summary of the simulation results.
+
+        Returns:
+        dict: A dictionary containing the following information:
+            - 'total_deaths': Total number of rabbit deaths.
+            - 'total_births': Total number of rabbit births.
+            - 'total_carrots': List of carrot quantities over time.
+            - 'fox_meals': Total number of rabbits eaten by the fox.
+
+        The summary is also written to a text file in the 'recap' folder.
+        """
         summary = {
-            'total_deaths': self.total_deaths,
-            'total_births': self.total_births,
-            'total_carrots': self.carrots.quantity_history,
-            'fox_meals': self.fox.rabbits_eaten
+            'total_deaths': self.total_deaths, # Total number of rabbit deaths
+            'total_births': self.total_births, # Total number of rabbit births
+            'total_carrots': self.carrots.quantity_history, # List of carrot quantities over time
+            'fox_meals': self.fox.rabbits_eaten # Total number of rabbits eaten by the fox
         }
         
-        # Convertir le dictionnaire en chaîne de caractères pour l'écrire dans le fichier
-        summary_str = '\n'.join([f'{key}: {value}' for key, value in summary.items()])
+        # Convert the dictionary into a string to write it to the file
+        summary_str = '\n'.join([f'{key}: {value}' for key, value in summary.items()]) # Convert the dictionary into a string to write it to the file
 
-        # Créer le dossier 'recap' s'il n'existe pas déjà
-        if not os.path.exists('recap'):
-            os.mkdir('recap')
+        # Create the 'recap' folder if it doesn't already exist
+        if not os.path.exists('recap'): # Create the 'recap' folder if it doesn't already exist
+            os.mkdir('recap') # Create the 'recap' folder
 
-        # Écrire le récapitulatif dans un fichier texte
-        with open('recap/summary.txt', 'w') as file:
-            file.write(summary_str)
+        # Write the summary to a text file
+        with open('recap/summary.txt', 'w') as file: # Write the summary to a text file
+            file.write(summary_str) # Write the summary to the text file

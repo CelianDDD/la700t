@@ -1,4 +1,4 @@
-from rabbit import Rabbit
+from rabbit import Rabbit # import Rabbit class from rabbit.py
 
 class Fox:
     def __init__(self) -> None:
