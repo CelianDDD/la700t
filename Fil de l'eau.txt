@@ -1,4 +1,4 @@
-Etape 1 : réunion de groupe pour la compréhension de l'énoncé et se mettre d'accord sur les charges de travail.
+# Etape 1 : réunion de groupe pour la compréhension de l'énoncé et se mettre d'accord sur les charges de travail.
 
 Célian : class Garden - Class Fox - Tests unitaires
 Paul: class rabbits 
